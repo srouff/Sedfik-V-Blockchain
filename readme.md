@@ -3,6 +3,7 @@
 **BARTHET Virgile, RAMOS Valentin, ROUFF Simon** :pencil: 
 
 [Lien du repo Github](https://github.com/VClone-bot/Sedfik-V-Blockchain/tree/master) 
+
 [Lien de la documentation technique (page WEB)](https://vclone-bot.github.io/Sedfik-V-Blockchain/blockchain/index.html)
 
 ## Présentation du projet
@@ -79,6 +80,12 @@ Un mineur est composé:
 * `wallets`: une HashSet contenant la liste de tous les wallets connectés à ce mineur
 * `payload`: les informations de la blockchain
 * `current_block_id`: l'ID du block en cours de minage
+### Wallet
+
+Un wallet est composé de 
+* `socket`: l'adresse IP sur laquelle le wallet écoute
+* `miner`: l'adresse IP du mineur auquel le wallet est associé
+* `id`: l'id du mineur
 
 ### Transaction
 
@@ -113,6 +120,9 @@ Ces flags sont utilisés pour la communication entre les différents éléments 
 |MineTransaction|Flag d'information pour lancer le minage d'un block|
 |OkMineTransaction|Flag Ack pour MineTransaction|
 |RequireWalletID|Demande le prochain Id pour un Wallet|
+|RequireBlockchain|L'arbre de Merkle demande au mineur la blockchain pour la vérifier|
+|SendBlockchain| L'arbre de Merkle envoie la blockchain au mineur une fois vérifiée|
+
 ## Checklist :pencil: 
 - [X] Mineur
     - [x] créer un mineur
@@ -127,7 +137,6 @@ Ces flags sont utilisés pour la communication entre les différents éléments 
 - [ ] Minage 
     - [x] Algo de minage
     - [x] Vérifier le calcul
-    - [ ] Threader le minage pour que le mineur puisse fonctionner pendant qu'il mine
 - [x] Arbre de Merkel
     - [x] Vérifier si une transaction est faite (l'intégrité)
 
